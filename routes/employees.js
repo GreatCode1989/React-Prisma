@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const { auth } = require("../middleware/auth");
-const { all, add, remove } = require("../controllers/employees");
+const { all, add, remove, edit, employee } = require("../controllers/employees");
 
 router.get("/", auth, all);
 
-router.get("/:id", auth, () => console.log("employees id"));
+router.get("/:id", auth, employee);
 
 router.post("/add", auth, add);
 
-router.post("remove/:id", remove);
+router.post("/remove/:id",auth, remove);
 
-router.put("edit/:id", auth, () => console.log("employees remove"));
+router.put("/edit/:id", auth, edit);
 
 module.exports = router;
