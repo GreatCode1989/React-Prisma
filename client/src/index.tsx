@@ -32,7 +32,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ConfigProvider theme={{
-        algorithm: theme.darkAlgorithm
+        algorithm: theme.defaultAlgorithm
       }}>
         <RouterProvider router={router} />
       </ConfigProvider>

@@ -9,10 +9,11 @@
 .teamIcon {
     font-size: 26px;
     margin-right: 12px;
-    padding-bottom: 17px;
+    padding-bottom: 25px;
 }
 
 .btn {
     padding-bottom: 50px;
-    background-color: blueviolet;
+    background-color: transparent;
 }
+
