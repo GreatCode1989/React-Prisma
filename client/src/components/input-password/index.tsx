@@ -40,8 +40,8 @@ export const PasswordInput = ({ name, placeholder, dependencies, color, textColo
                 new Error("Пароли не совпадают!")
               );
             } else {
-                if (value.length < 8) {
-                    return Promise.reject(new Error("Пароль должен содержать минимум 8 символов!"));
+                if (value.length < 5) {
+                    return Promise.reject(new Error("Пароль должен содержать минимум 5 символов!"));
                   }
                   return Promise.resolve();
             }

@@ -10,7 +10,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({
+      return res.status(401).json({
         message: "Пожалуйста, золните обязательные поля!",
       });
     }
@@ -34,7 +34,7 @@ const login = async (req, res) => {
         token: jwt.sign({ id: user.id }, secret, { expiresIn: "30d" }),
       });
     } else {
-      return res.status(400).json({
+      return res.status(402).json({
         message: "Неверный логин или пароль",
       });
     }
