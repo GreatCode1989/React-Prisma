@@ -7,6 +7,7 @@ import { store } from "./app/store";
 import { Paths } from "./paths";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
+import { Auth } from "./features/auth/auth";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
@@ -31,10 +32,14 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ConfigProvider theme={{
-        algorithm: theme.defaultAlgorithm
-      }}>
-        <RouterProvider router={router} />
+      <ConfigProvider
+        theme={{
+          algorithm: theme.defaultAlgorithm,
+        }}
+      >
+        <Auth>
+          <RouterProvider router={router} />
+        </Auth>
       </ConfigProvider>
     </Provider>
   </React.StrictMode>
