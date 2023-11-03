@@ -1,20 +1,25 @@
 import React from "react";
-import { ConfigProvider, theme } from "antd";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./app/store";
-import { Paths } from "./paths";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
-import { Auth } from "./features/auth/auth";
 import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider, theme } from "antd";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AddEmployee } from "./pages/add-employee";
+import { Employees } from "./pages/employees";
+import { Register } from "./pages/register";
+import { Login } from "./pages/login";
+import { Employee } from "./pages/employee";
+import { Status } from "./pages/status";
+import { EditEmployee } from "./pages/edit-employee";
+import { Auth } from "./features/auth/auth";
+import { Paths } from "./paths";
 import "./index.css";
 
 const router = createBrowserRouter([
   {
     path: Paths.home,
-    element: <h1>Employees</h1>,
+    element: <Employees />,
   },
   {
     path: Paths.login,
@@ -23,6 +28,22 @@ const router = createBrowserRouter([
   {
     path: Paths.register,
     element: <Register />,
+  },
+  {
+    path: Paths.employeeAdd,
+    element: <AddEmployee />,
+  },
+  {
+    path: `${Paths.employee}/:id`,
+    element: <Employee />,
+  },
+  {
+    path: `${Paths.employeeEdit}/:id`,
+    element: <EditEmployee />,
+  },
+  {
+    path: `${Paths.status}/:status`,
+    element: <Status />,
   },
 ]);
 
@@ -34,7 +55,7 @@ root.render(
     <Provider store={store}>
       <ConfigProvider
         theme={{
-          algorithm: theme.defaultAlgorithm,
+          algorithm: theme.darkAlgorithm,
         }}
       >
         <Auth>
